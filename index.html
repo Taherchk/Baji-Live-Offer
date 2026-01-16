@@ -3,234 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baji Live - অফিসিয়াল রেজিস্ট্রেশন</title>
+    <title>Baji Live | Online Cricket Betting & Casino</title>
     <style>
-        /* বেসিক স্টাইল এবং রিসেট */
+        /* রিসেট এবং বেসিক স্টাইল */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         body {
-            background-color: #0b1219;
-            color: #ffffff;
+            background-color: #0e0e0e; /* একদম কালো ব্যাকগ্রাউন্ড */
+            color: #b0b0b0; /* হালকা ধূসর টেক্সট */
             line-height: 1.6;
         }
 
-        a { text-decoration: none; }
+        a { text-decoration: none; color: inherit; }
 
-        /* হেডার */
+        /* হেডার ডিজাইন (স্ক্রিনশটের মতো) */
         header {
-            background: #15202b;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            background-color: #1c262f;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            border-bottom: 2px solid #009068;
         }
 
         .logo {
-            font-size: 26px;
-            font-weight: 800;
-            color: #ffdf1b;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        .logo span { color: #00e092; margin-right: 5px; } /* bj লোগো স্টাইল */
+
+        .header-buttons {
+            display: flex;
+            gap: 10px;
         }
 
-        /* হিরো সেকশন (মেইন ব্যানার) */
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1628779238951-be2c9f2a59f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+        .btn-login, .btn-signup {
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-login {
+            background-color: transparent;
+            color: white;
+            border: 1px solid #009068;
+        }
+
+        .btn-signup {
+            background-color: #ffc107; /* হলুদ বাটন */
+            color: black;
+            border: none;
+        }
+
+        /* ব্যানার সেকশন */
+        .banner {
+            width: 100%;
+            height: auto;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1596838132731-3301c3fd4317?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 60px 20px;
             text-align: center;
-            padding: 20px;
-        }
-
-        .hero-title {
-            font-size: 2.8rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-
-        .hero-title span { color: #ffdf1b; }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #e0e0e0;
-            max-width: 600px;
-        }
-
-        /* অ্যাকশন বাটন ডিজাইন */
-        .btn-main {
-            background: linear-gradient(45deg, #28a745, #20c997);
             color: white;
-            padding: 18px 45px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            border-radius: 50px;
-            box-shadow: 0 0 20px rgba(40, 167, 69, 0.6);
-            transition: transform 0.2s;
-            display: inline-block;
-            border: 2px solid #fff;
-            animation: bounce 2s infinite;
         }
 
-        .btn-main:active { transform: scale(0.95); }
+        .banner h1 {
+            font-size: 2rem;
+            color: #ffc107;
+            text-shadow: 2px 2px 4px #000;
+            margin-bottom: 10px;
+        }
 
-        /* পেমেন্ট আইকন সেকশন */
-        .payment-methods {
-            background: #15202b;
+        .banner p {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: #ffc107;
+            color: #000;
+            padding: 12px 30px;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 5px;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* কন্টেন্ট এরিয়া (লেখার অংশ) */
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
             padding: 30px 20px;
+        }
+
+        .content-section {
+            margin-bottom: 40px;
+            text-align: left; /* বাম দিক থেকে শুরু */
+        }
+
+        .content-section h2 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
             text-align: center;
         }
-        
-        .payment-title { margin-bottom: 20px; color: #aaa; font-size: 0.9rem; }
 
-        .badges {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            background: #2c3e50;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        .bkash { color: #e2136e; border: 1px solid #e2136e; }
-        .nagad { color: #f68e1e; border: 1px solid #f68e1e; }
-        .rocket { color: #8c3494; border: 1px solid #8c3494; }
-
-        /* অফার লিস্ট */
-        .offers {
-            padding: 50px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .offer-item {
-            background: #1e2a36;
-            padding: 20px;
+        .content-section p {
             margin-bottom: 15px;
-            border-radius: 10px;
-            border-left: 5px solid #ffdf1b;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        .content-section ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .content-section ul li {
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
 
-        .check-icon {
-            color: #28a745;
-            font-size: 1.5rem;
-            margin-right: 15px;
+        .content-section ul li::before {
+            content: "•";
+            color: #00e092;
+            font-size: 20px;
+            margin-right: 10px;
         }
 
         /* ফুটার */
         footer {
-            background: #080d11;
-            padding: 25px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #666;
-            margin-top: 30px;
+            background-color: #05080a;
+            padding: 40px 20px;
+            border-top: 1px solid #333;
         }
 
-        /* বাটন এনিমেশন */
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-10px);}
-            60% {transform: translateY(-5px);}
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-col h4 {
+            color: white;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .footer-col a {
+            display: block;
+            color: #888;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+
+        .payment-icons span {
+            display: inline-block;
+            background: #222;
+            color: white;
+            padding: 5px 10px;
+            margin: 3px;
+            font-size: 10px;
+            border-radius: 3px;
+            border: 1px solid #444;
+        }
+
+        .bkash { color: #e2136e !important; }
+        .nagad { color: #f68e1e !important; }
+
+        /* এনিমেশন */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
         /* মোবাইল রেস্পন্সিভ */
         @media (max-width: 600px) {
-            .hero-title { font-size: 2rem; }
-            .hero-subtitle { font-size: 1rem; }
-            .btn-main { padding: 15px 30px; font-size: 1.1rem; width: 100%; }
+            .logo { font-size: 22px; }
+            .btn-login, .btn-signup { padding: 6px 12px; font-size: 12px; }
+            .banner h1 { font-size: 1.5rem; }
+            .content-section h2 { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- লোগো এরিয়া -->
+    <!-- হেডার -->
     <header>
-        <div class="logo">BAJI LIVE</div>
+        <div class="logo">
+            <span>bj</span> baji
+        </div>
+        <div class="header-buttons">
+            <a href="https://bj07p15aff2020.com/af/j93iP5G7/join" class="btn-login">Login</a>
+            <a href="https://bj07p15aff2020.com/af/j93iP5G7/join" class="btn-signup">Sign Up</a>
+        </div>
     </header>
 
-    <!-- হিরো সেকশন -->
-    <section class="hero-section">
-        <h1 class="hero-title">বাংলাদেশের ১ নম্বর <span>বেটিং সাইট</span></h1>
-        <p class="hero-subtitle">
-            ক্রিকেট, ফুটবল এবং লাইভ ক্যাসিনো খেলুন। নতুন একাউন্ট খুললেই ২৫০ টাকা ফ্রি বোনাস!
-        </p>
+    <!-- ব্যানার -->
+    <section class="banner">
+        <h1>ফরচুন জেতার জন্য প্রস্তুত?</h1>
+        <p>আপনার রোমাঞ্চকর জয়ের মুহূর্তগুলি শেয়ার করুন!</p>
+        <a href="https://bj07p15aff2020.com/af/j93iP5G7/join" class="cta-btn">আরও তথ্য</a>
+    </section>
+
+    <!-- মেইন কন্টেন্ট (স্ক্রিনশটের মতো লেখা) -->
+    <div class="content-container">
         
-        <!-- আপনার দেওয়া লিংক এখানে বসানো হয়েছে -->
-        <a href="https://bj07p15aff2020.com/af/j93iP5G7/join" class="btn-main" target="_blank">
-            এখনই রেজিস্ট্রেশন করুন 
-        </a>
-    </section>
-
-    <!-- পেমেন্ট মেথড -->
-    <section class="payment-methods">
-        <p class="payment-title">দ্রুত ও নিরাপদ লেনদেন</p>
-        <div class="badges">
-            <span class="badge bkash">bKash</span>
-            <span class="badge nagad">Nagad</span>
-            <span class="badge rocket">Rocket</span>
-            <span class="badge">Bank Transfer</span>
-        </div>
-    </section>
-
-    <!-- কেন বাজি লাইভ? -->
-    <section class="offers">
-        <div class="offer-item">
-            <div class="check-icon">✔</div>
-            <div>
-                <h3>দ্রুত উইথড্রয়াল</h3>
-                <p style="font-size: 0.9rem; color: #bbb;">মাত্র ১০ মিনিটে টাকা আপনার পকেটে।</p>
-            </div>
-        </div>
-        <div class="offer-item">
-            <div class="check-icon">✔</div>
-            <div>
-                <h3>লাইভ স্ট্রিমিং</h3>
-                <p style="font-size: 0.9rem; color: #bbb;">খেলা দেখুন এবং সরাসরি বাজি ধরুন।</p>
-            </div>
-        </div>
-        <div class="offer-item">
-            <div class="check-icon">✔</div>
-            <div>
-                <h3>২৪/৭ সাপোর্ট</h3>
-                <p style="font-size: 0.9rem; color: #bbb;">বাংলায় কাস্টমার কেয়ার সুবিধা।</p>
-            </div>
+        <div class="content-section">
+            <h2>Baji Live</h2>
+            <p>Unlock endless possibilities with Baji Live. This platform redefines the online betting experience, providing access to a wide range of sports and casino games. Whether you're a seasoned bettor or just starting, registering on Baji Live is the gateway to unparalleled entertainment and exciting rewards.</p>
         </div>
 
-        <br>
-        <!-- দ্বিতীয় বাটন (ফুটার এর আগে) -->
-        <div style="text-align: center;">
-            <a href="https://bj07p15aff2020.com/af/j93iP5G7/join" class="btn-main" style="background: #ffdf1b; color: #000; border: none; font-size: 1rem;">
-                অ্যাপ ডাউনলোড ও জয়েন
-            </a>
+        <div class="content-section">
+            <h2>Step Into the World of Baji Live</h2>
+            <p>Baji Live is a trusted name in the world of online gaming, licensed and regulated to ensure your safety. The platform caters to players from Bangladesh, offering user-friendly features, diverse gaming options, and a secure environment.</p>
         </div>
-    </section>
+
+        <div class="content-section">
+            <h2>How to Complete Baji Live Sign Up</h2>
+            <p>Registering on Baji Live is a simple process designed for convenience. Follow these steps to create your account:</p>
+            <ul>
+                <li>Visit the official Baji Live website or download the mobile app.</li>
+                <li>Click on the "Sign Up" button to start the registration process.</li>
+                <li>Fill out the form with accurate personal details, including email and password.</li>
+                <li>Submit the form and verify your account through email or required documents.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Exclusive Features for New Users</h2>
+            <p>New players who complete the Baji Live process gain access to exclusive features, including welcome bonuses, free bets, and promotions tailored to enhance your gaming experience. These offers ensure that beginners have an exciting start to their journey on the platform.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Secure Payment Methods</h2>
+            <p>Baji Live ensures smooth deposits and withdrawals with a variety of payment options suited for Bangladesh:</p>
+            <ul>
+                <li>bKash</li>
+                <li>Nagad</li>
+                <li>Rocket</li>
+                <li>Bank Transfers & Crypto</li>
+            </ul>
+        </div>
+
+        <!-- মাঝখানে বড় সাইন আপ বাটন -->
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="https://bj07p15aff2020.com/af/j93iP5G7/join" class="cta-btn" style="width: 100%; max-width: 300px;">JOIN NOW</a>
+        </div>
+
+    </div>
 
     <!-- ফুটার -->
     <footer>
-        <p>&copy; ২০২৪ Baji Live Partner.</p>
-        <p>সতর্কতা: ১৮+ বয়সের জন্য। বাজি খেলা আর্থিক ঝুঁকির কারণ হতে পারে।</p>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Menu</h4>
+                <a href="https://bj07p15aff2020.com/af/j93iP5G7/join">Baji Live</a>
+                <a href="https://bj07p15aff2020.com/af/j93iP5G7/join">Login</a>
+                <a href="https://bj07p15aff2020.com/af/j93iP5G7/join">Sign Up</a>
+                <a href="https://bj07p15aff2020.com/af/j93iP5G7/join">App</a>
+            </div>
+            <div class="footer-col">
+                <h4>Payments</h4>
+                <div class="payment-icons">
+                    <span class="bkash">bKash</span>
+                    <span class="nagad">Nagad</span>
+                    <span>Rocket</span>
+                    <span>UPI</span>
+                    <span>Crypto</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Information</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contacts</a>
+                <a href="#">License</a>
+                <span style="font-size: 20px;">🔞</span>
+            </div>
+        </div>
+        <p style="text-align: center; font-size: 10px; color: #555; margin-top: 30px;">
+            &copy; 2025 Baji Live Partner. All rights reserved.
+        </p>
     </footer>
 
 </body>
